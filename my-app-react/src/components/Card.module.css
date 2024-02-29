@@ -1,0 +1,8 @@
+.card_content{
+    width: 250px;
+    border-radius: 4px;
+    border: 1px solid #c3c3c3;
+    overflow: hidden;
+    transition-property: height;
+    transition-duration: 0.4s;
+}   

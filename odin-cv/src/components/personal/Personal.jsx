@@ -1,26 +1,37 @@
 import formstyle from '../formstyle.module.css'
+import { useCallback, useState } from 'react'
 
-function Personal(){
-    return(
+function Personal() {
+    const [isExpanded, setIsExpanded] = useState(false)
+
+    const toggleIsExpanded = useCallback(() => {
+        setIsExpanded((isExpanded) => !isExpanded)
+    }, [])
+
+    return (
         <>
-        <div className={formstyle.form_header}>
-            <p>Informações pessoais</p>
-            <button className={formstyle.button_form}>Mais</button>
-        </div>
-        <form className={formstyle.form_content}>
 
-            <label htmlFor="nome">Nome</label>
-            <input className={formstyle.input} type="text" name="nome" id="nome" />
+            <div style={{ height: isExpanded ? '340px' : '40px' }} className={formstyle.form_content}>
 
-            <label htmlFor="email">Email</label>
-            <input className={formstyle.input} type="text" name="email" id="email" />
+                <div className={formstyle.form_header}>
+                    <p>Informações pessoais</p>
+                    <button onClick={toggleIsExpanded} className={formstyle.button_form}>
+                        {isExpanded ? "<" : "v"}
+                    </button>
+                </div>
 
-            <label htmlFor="github">Github(opcional)</label>
-            <input className={formstyle.input} type="text" name="github" id="github" />
+                <label htmlFor="nome">Nome</label>
+                <input className={formstyle.input} type="text" name="nome" id="nome" />
 
-            <label htmlFor="portifolio">Portifolio(opcional)</label>
-            <input className={formstyle.input} type="text" name="portifolio" id="portifolio" />
-        </form>
+                <label htmlFor="email">Email</label>
+                <input className={formstyle.input} type="text" name="email" id="email" />
+
+                <label htmlFor="github">Github(opcional)</label>
+                <input className={formstyle.input} type="text" name="github" id="github" />
+
+                <label htmlFor="portifolio">Portifolio(opcional)</label>
+                <input className={formstyle.input} type="text" name="portifolio" id="portifolio" />
+            </div>
         </>
     )
 }

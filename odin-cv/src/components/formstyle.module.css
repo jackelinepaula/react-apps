@@ -21,11 +21,16 @@
 .form_content{
     width: min-content;
     padding: 8px 15px 8px 15px;
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
 
     border: 1px solid #b2afbe;
     border-radius: 4px;
+
+    overflow: hidden;
+    transition-property: height;
+    transition-duration: 0.5s;
+
 }
 
 .input{
